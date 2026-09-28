@@ -3,10 +3,8 @@ import java.net.*;
 
 public class Server
 {
-    static void main(String[] args)
+    public void Init()
     {
-        IO.println("Hello and welcome!");
-
         try {
             // 1. New server
             ServerSocket serverSocket = new ServerSocket(1234);
@@ -23,8 +21,8 @@ public class Server
             System.out.println("Client msg : " + messageClient);
 
             // 4. Send response to client
-            OutputStream outpout = clientSocket.getOutputStream();
-            PrintWriter writer = new PrintWriter(outpout, true);
+            OutputStream output = clientSocket.getOutputStream();
+            PrintWriter writer = new PrintWriter(output, true);
             writer.println("Hello, client !");
 
             // 5. Close connections
@@ -36,7 +34,6 @@ public class Server
         {
             err.printStackTrace();
         }
-
     }
 }
 
